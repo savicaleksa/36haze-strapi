@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "mappedBy": "projects"
+    },
+    "year": {
+      "type": "integer",
+      "default": 2020,
+      "required": true
+    },
+    "label": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::label.label",
+      "inversedBy": "projects"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "EP",
+        "Single",
+        "Album",
+        "Song"
+      ],
+      "default": "Album",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::track.track",
+      "mappedBy": "project"
+    },
+    "selected": {
+      "type": "boolean",
+      "default": false
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "authorsZone": {
+      "type": "dynamiczone",
+      "components": [
+        "project.author-relation"
+      ],
+      "min": 0
+    }
+  }
+}

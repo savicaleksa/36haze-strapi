@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_project_author_relations",
+  "info": {
+    "displayName": "authorRelation",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_project_track_components",
+  "info": {
+    "displayName": "TrackComponent",
+    "icon": "music",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    }
+  }
+}

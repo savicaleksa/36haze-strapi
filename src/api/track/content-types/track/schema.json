@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracks",
+  "info": {
+    "singularName": "track",
+    "pluralName": "tracks",
+    "displayName": "Track",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "inversedBy": "tracks"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "tracks"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "default": "/"
+    },
+    "placements": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::placement.placement",
+      "inversedBy": "tracks"
+    },
+    "authorsZone": {
+      "type": "dynamiczone",
+      "components": [
+        "project.author-relation"
+      ]
+    }
+  }
+}
